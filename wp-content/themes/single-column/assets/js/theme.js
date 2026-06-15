@@ -36,11 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		button.focus();
 	});
 
-	if (mediaQuery.addEventListener) {
-		mediaQuery.addEventListener('change', syncPanel);
-	} else if (mediaQuery.addListener) {
-		mediaQuery.addListener(syncPanel);
-	}
+	mediaQuery.addEventListener('change', syncPanel);
 
 	syncPanel();
 });
