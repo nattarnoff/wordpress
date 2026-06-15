@@ -29,7 +29,7 @@ if ( have_posts() ) {
 	rewind_posts();
 }
 
-$hero_style = $hero_image ? sprintf( ' style="%s"', esc_attr( "background-image: url('{$hero_image}');" ) ) : '';
+$hero_style = $hero_image ? sprintf( ' style="%s"', esc_attr( "background-image: url('" . esc_url( $hero_image ) . "');" ) ) : '';
 
 $recent_posts = new WP_Query(
 	array(

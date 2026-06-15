@@ -113,11 +113,16 @@ function single_column_fallback_menu( $args ) {
 	);
 
 	$menu_class = isset( $args['menu_class'] ) ? $args['menu_class'] : 'menu';
-	$home_class = is_front_page() ? ' class="current_page_item"' : '';
-	$items      = '<li' . $home_class . '><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'single-column' ) . '</a></li>';
-	$items     .= wp_kses_post( $pages );
+	$home_class = trim( 'page_item' . ( is_front_page() ? ' current_page_item' : '' ) );
+	$items      = sprintf(
+		'<li class="%1$s"><a href="%2$s">%3$s</a></li>',
+		esc_attr( $home_class ),
+		esc_url( home_url( '/' ) ),
+		esc_html__( 'Home', 'single-column' )
+	);
+	$items     .= $pages;
 
 	echo '<ul class="' . esc_attr( $menu_class ) . '">';
-	echo $items; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo wp_kses_post( $items );
 	echo '</ul>';
 }
