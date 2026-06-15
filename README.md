@@ -1,0 +1,2 @@
+# wordpress
+Personal wordpress theme
