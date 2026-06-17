@@ -2,7 +2,7 @@
 
 This repository contains a custom theme at:
 
-- `/home/runner/work/wordpress/wordpress/wp-content/themes/single-column`
+- `wp-content/themes/single-column`
 
 ## Theme structure update
 
